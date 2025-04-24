@@ -21,4 +21,9 @@ api_key=st.text_input("Enter your Groq API key:", type="password")
 
 if api_key:
     llm=ChatGroq(model="Gemma2-9b-It", api_key=api_key)
-    session_id=st.text_input("Session IF", value="default_id")
+    session_id=st.text_input("Session Id", value="default_id")
+
+    if 'store' not in st.seesion_status:
+        st.session_state.store={}
+
+    uploaded_files=st.file_uploader("Chose A pdf file", type="pdf", accept_multiple_files=True)
