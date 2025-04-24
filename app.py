@@ -11,7 +11,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# os.environ['HF_TOKEN']=os.getenv('HF_TOKEN')
+os.environ['HF_TOKEN']=os.getenv('HF_TOKEN')
 embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 st.title("Conversational RAG")
@@ -22,3 +22,5 @@ api_key=st.text_input("Enter your Groq API key:", type="password")
 if api_key:
     llm=ChatGroq(model="Gemma2-9b-It", api_key=api_key)
     session_id=st.text_input("Session IF", value="default_id")
+
+# test comment for git purposes
